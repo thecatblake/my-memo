@@ -1,0 +1,1 @@
+(:Person {name: "Ryousuke Kaga"})-[:WORKS_FOR]->(:Organization {name: "42"})
