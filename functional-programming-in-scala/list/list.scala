@@ -17,3 +17,7 @@ object List:
         case Nil => 1.0
         case Cons(0, _) => 0.0
         case Cons(x, xs) => x * produt(xs)
+
+    def tail[A](as: List[A]): List[A] = as match 
+        case Nil => sys.error("Do not use tail on Nil")
+        case Cons(x, xs) => xs

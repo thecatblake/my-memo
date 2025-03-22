@@ -1,4 +1,4 @@
-package myapp
+package ex3_1
 
 import datastructures.List
 import datastructures.List.*
