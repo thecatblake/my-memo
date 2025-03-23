@@ -21,3 +21,7 @@ object List:
     def tail[A](as: List[A]): List[A] = as match 
         case Nil => sys.error("Do not use tail on Nil")
         case Cons(x, xs) => xs
+
+    def setHead[A](as: List[A], head: A): List[A] = as match
+        case Nil => Cons(head, Nil)
+        case Cons(_, xs) => Cons(head, xs)
