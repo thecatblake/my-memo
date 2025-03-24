@@ -25,3 +25,9 @@ object List:
     def setHead[A](as: List[A], head: A): List[A] = as match
         case Nil => Cons(head, Nil)
         case Cons(_, xs) => Cons(head, xs)
+
+    def drop[A](as: List[A], n: Int): List[A] =
+        if n == 0 then as
+        else as match 
+            case Nil => Nil
+            case Cons(x, xs) => drop(xs, n - 1)
