@@ -31,3 +31,9 @@ object List:
         else as match 
             case Nil => Nil
             case Cons(x, xs) => drop(xs, n - 1)
+
+    def dropWhile[A](as: List[A], f: A => Boolean): List[A] = as match
+        case Nil => Nil
+        case Cons(x, xs) => 
+            if f(x) then dropWhile(xs, f)
+            else Cons(x, xs)
