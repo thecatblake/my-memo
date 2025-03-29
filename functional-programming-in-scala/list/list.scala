@@ -9,14 +9,15 @@ object List:
         if as.isEmpty then Nil
         else Cons(as.head, apply(as.tail*))
 
-    def sum(ints: List[Int]): Int = ints match
-        case Nil => 0
-        case Cons(x, xs) => x + sum(xs)
+    def foldRight[A, B](as: List[A], acc: B, f: (A, B) => B): B = as match
+        case Nil => acc
+        case Cons(x, xs) => f(x, foldRight(xs, acc, f))
+
+    def sum(ints: List[Int]): Int =
+        foldRight(ints, 0, _ + _)
     
-    def produt(doubles: List[Double]): Double = doubles match
-        case Nil => 1.0
-        case Cons(0, _) => 0.0
-        case Cons(x, xs) => x * produt(xs)
+    def produt(doubles: List[Double]): Double =
+        foldRight(ints, 1.0, _ * _)
 
     def tail[A](as: List[A]): List[A] = as match 
         case Nil => sys.error("Do not use tail on Nil")
@@ -37,3 +38,8 @@ object List:
         case Cons(x, xs) => 
             if f(x) then dropWhile(xs, f)
             else Cons(x, xs)
+
+    def init[A](as: List[A]): List[A] = as match
+        case Nil => Nil
+        case Cons(x, Nil) => Nil
+        case Cons(x, xs) => Cons(x, init(xs))
