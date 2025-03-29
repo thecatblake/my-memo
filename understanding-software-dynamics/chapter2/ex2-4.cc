@@ -7,7 +7,7 @@ static const int kIterations = 1000 * 1000000;
 
 int main(int argc, char** argv) {
     uint64_t startcy, stopcy;
-    uint64_t sum = 0;
+    volatile uint64_t sum = 0;
 
     startcy = mach_absolute_time();
 
