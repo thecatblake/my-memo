@@ -13,4 +13,6 @@ object Test {
     @main def testSubtraction: Unit =
         println(FieldElement(9, 57) - FieldElement(29, 57))
 
+    @main def testMultiplication: Unit =
+        println(FieldElement(77, 97) * FieldElement(6, 97))
 }
